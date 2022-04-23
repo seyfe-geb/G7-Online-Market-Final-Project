@@ -156,6 +156,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.PUT, "/user-addresses/**").hasAuthority(Role.BUYER)
                 .antMatchers(HttpMethod.DELETE, "/user-addresses/**").hasAuthority(Role.BUYER)
 
+                .antMatchers(HttpMethod.GET, "/user-addresses/list/**").hasAnyAuthority(Role.BUYER, Role.SELLER)
+                .antMatchers(HttpMethod.POST, "/user-addresses/list/**").hasAuthority(Role.BUYER)
+                .antMatchers(HttpMethod.PUT, "/user-addresses/list/**").hasAuthority(Role.BUYER)
+                .antMatchers(HttpMethod.DELETE, "/user-addresses/list/**").hasAuthority(Role.BUYER)
+
                 .anyRequest().authenticated();
 
         // Add JWT token filter

@@ -18,6 +18,7 @@ public class UserProfileDto extends UserDto{
     @JsonManagedReference
     private List<AddressDto> addresses;
 
+
     @JsonManagedReference
     private List<PaymentMethodDto> paymentMethods;
 }

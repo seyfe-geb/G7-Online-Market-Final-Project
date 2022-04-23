@@ -1,6 +1,7 @@
 package com.waa.g7onlinemarket.services;
 
 
+import com.waa.g7onlinemarket.models.AddressType;
 import com.waa.g7onlinemarket.models.Role;
 import com.waa.g7onlinemarket.models.ShoppingCart;
 import com.waa.g7onlinemarket.models.User;
@@ -49,7 +50,17 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 
     @Override
     public UserProfileDto findProfile() {
-        return modelMapper.map(repository.findById(loggedInUserService.getUserId()).orElse(null), UserProfileDto.class);
+        User user = repository.findById(loggedInUserService.getUserId()).orElse(null);
+        UserProfileDto profile = modelMapper.map(user, UserProfileDto.class);
+        profile.setShippingAddress(modelMapper.map(user.getAddresses()
+                .stream()
+                .filter(ad -> ad.getType() == AddressType.SHIPPING)
+                .findFirst().orElse(null), AddressDto.class));
+        profile.setBillingAddress(modelMapper.map(user.getAddresses()
+                .stream()
+                .filter(ad -> ad.getType() == AddressType.BILLING)
+                .findFirst().orElse(null), AddressDto.class));
+        return profile;
     }
 
     @Override
