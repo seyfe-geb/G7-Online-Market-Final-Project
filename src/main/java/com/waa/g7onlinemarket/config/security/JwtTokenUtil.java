@@ -22,7 +22,7 @@ public class JwtTokenUtil {
 
     public String generateAccessToken(User user) {
         return Jwts.builder()
-                .setSubject(format("%s,%s, %s", user.getId(), user.getFname(), user.getLname()))
+                .setSubject(format("%s,%s, %s", user.getId(), user.getUsername(), user.getFname(), user.getLname()))
                 .setIssuer(jwtIssuer)
                 .setIssuedAt(new Date())
                 .setExpiration(new Date(System.currentTimeMillis() + 2 * 24 * 60 * 60 * 1000)) // 2 days
@@ -44,7 +44,7 @@ public class JwtTokenUtil {
                 .setSigningKey(jwtSecret)
                 .parseClaimsJws(token)
                 .getBody();
-
+        System.out.println(claims.getSubject());
         return claims.getSubject().split(",")[1];
     }
 

@@ -15,11 +15,15 @@ import java.util.List;
 @Setter
 public class AuthResponseDto {
 
-    private String id;
+//    private String id;
+//
+//    private String fname;
+//
+//    private String lname;
 
-    private String fname;
+    private String username;
 
-    private String lname;
+    private String password;
 
     private String token;
 
