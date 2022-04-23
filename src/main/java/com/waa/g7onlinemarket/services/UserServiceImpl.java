@@ -52,14 +52,14 @@ public class UserServiceImpl implements UserService, UserDetailsService {
     public UserProfileDto findProfile() {
         User user = repository.findById(loggedInUserService.getUserId()).orElse(null);
         UserProfileDto profile = modelMapper.map(user, UserProfileDto.class);
-        profile.setShippingAddress(modelMapper.map(user.getAddresses()
-                .stream()
-                .filter(ad -> ad.getType() == AddressType.SHIPPING)
-                .findFirst().orElse(null), AddressDto.class));
-        profile.setBillingAddress(modelMapper.map(user.getAddresses()
-                .stream()
-                .filter(ad -> ad.getType() == AddressType.BILLING)
-                .findFirst().orElse(null), AddressDto.class));
+//        profile.setShippingAddress(modelMapper.map(user.getAddresses()
+//                .stream()
+//                .filter(ad -> ad.getType() == AddressType.SHIPPING)
+//                .findFirst().orElse(null), AddressDto.class));
+//        profile.setBillingAddress(modelMapper.map(user.getAddresses()
+//                .stream()
+//                .filter(ad -> ad.getType() == AddressType.BILLING)
+//                .findFirst().orElse(null), AddressDto.class));
         return profile;
     }
 
