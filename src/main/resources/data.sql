@@ -95,10 +95,10 @@ values (9, 'Des Moins', 'IA', '567ST',   1, '567891', 5);
 INSERT INTO addresses (id, city, state, street, type, zip_code, user_id)
 values (10, 'Des Moins', 'IA', '567ST',   2, '567891', 5);
 --
--- --PAYMENT_METHOD
--- INSERT INTO payment_method (id, billing_address_id, card_number, created_at, payment_type, user_id)
--- values (1, 1, '123456', '2022-04-11', 'CREDIT', 1);
---
+--PAYMENT_METHOD
+INSERT INTO payment_methods (id, csv, is_default, name, number, type, billing_address_id, user_id)
+values (1, 142, 1, 'seyfe', '1234567891234567', 1, 9, 5);
+
 -- INSERT INTO payment_method (id, billing_address_id, card_number, created_at, payment_type, user_id)
 -- values (2, 3, '234567', '2022-04-12', 'DEBIT', 2);
 --
