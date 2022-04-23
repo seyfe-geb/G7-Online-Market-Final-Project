@@ -144,11 +144,14 @@ public class UserServiceImpl implements UserService, UserDetailsService {
     public UserDto approveById(long id) {
         User user = repository.getById(id);
         user.setApprovedSeller(true);
+        System.out.println(user.isApprovedSeller());
         return modelMapper.map(repository.save(user), UserDto.class);
     }
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        User user = repository.findByUsername(username).orElse(null);
+        System.out.println(user.isApprovedSeller());
         return repository.findByUsername(username)
                 .orElseThrow(() -> new UsernameNotFoundException("User with username - " + username + ", not found "));
     }
