@@ -163,11 +163,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
                 .anyRequest().authenticated();
 
-        // Add JWT token filter
         http.addFilterBefore(jwtTokenFilter, UsernamePasswordAuthenticationFilter.class);
     }
 
-    // Used by spring security if CORS is enabled.
     @Bean
     public CorsFilter corsFilter() {
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
@@ -179,7 +177,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         return new CorsFilter(source);
     }
 
-    // Expose authentication manager bean
     @Override @Bean
     public AuthenticationManager authenticationManagerBean() throws Exception {
         return super.authenticationManagerBean();

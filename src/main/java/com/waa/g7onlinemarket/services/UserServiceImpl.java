@@ -1,7 +1,7 @@
 package com.waa.g7onlinemarket.services;
 
 
-import com.waa.g7onlinemarket.models.AddressType;
+
 import com.waa.g7onlinemarket.models.Role;
 import com.waa.g7onlinemarket.models.ShoppingCart;
 import com.waa.g7onlinemarket.models.User;

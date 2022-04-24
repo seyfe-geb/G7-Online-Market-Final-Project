@@ -19,7 +19,6 @@ public class MvcConfig implements WebMvcConfigurer {
         return resolver;
     }
 
-    // Remove the default ROLE_ prefix
     @Bean
     public GrantedAuthorityDefaults grantedAuthorityDefaults() {
         return new GrantedAuthorityDefaults("");

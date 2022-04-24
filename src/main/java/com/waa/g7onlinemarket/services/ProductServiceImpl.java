@@ -52,9 +52,6 @@ public class ProductServiceImpl implements ProductService{
         Product product = modelMapper.map(dto, Product.class);
 
         User user = loggedInUserService.getLoggedInUser();
-        System.out.println(user.isApprovedSeller());
-//        if(user.isApprovedSeller())
-//            throw new ValidationException("UnApproved seller can not add products");
 
         product.setUser(user);
 
