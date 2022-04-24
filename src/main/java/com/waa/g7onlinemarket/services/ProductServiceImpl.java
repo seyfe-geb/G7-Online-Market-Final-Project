@@ -53,9 +53,6 @@ public class ProductServiceImpl implements ProductService{
 
         User user = loggedInUserService.getLoggedInUser();
 
-        if(user.isApprovedSeller())
-            throw new ValidationException("UnApproved seller can not add products");
-
         product.setUser(user);
 
         if(product.getImages() != null && !product.getImages().isEmpty()){

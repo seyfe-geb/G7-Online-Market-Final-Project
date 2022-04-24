@@ -16,8 +16,6 @@ public class AuthRequestDto {
     @NotNull
     private String username;
 
-   /* @Email
-    private String email;*/
 
     @NotNull
     private String password;

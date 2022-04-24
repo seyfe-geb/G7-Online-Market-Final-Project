@@ -33,6 +33,13 @@ public class AddressServiceImpl implements AddressService{
     }
 
     @Override
+    public List<AddressDto> findByUserId(long id) {
+        List<Address> addresses = repository.findAddressByUser(userRepository.findById(id).orElse(null));
+        return addresses.stream().map(a -> modelMapper.map(a, AddressDto.class)).collect(Collectors.toList());
+//        return modelMapper.map(repository.findById(id).orElse(null), AddressDto.class);
+    }
+
+    @Override
     public AddressDto add(SaveAddressDto dto) {
         Address entity = modelMapper.map(dto, Address.class);
         return modelMapper.map(repository.save(entity), AddressDto.class);

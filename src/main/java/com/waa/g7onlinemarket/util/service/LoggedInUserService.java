@@ -8,12 +8,12 @@ import org.springframework.stereotype.Service;
 @Service
 public class LoggedInUserService {
 
-    public static User user = null;
+//    public static User user = null;
 
     public long getUserId(){
-//        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-//
-//        User user = (User) auth.getPrincipal();
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+
+        User user = (User) auth.getPrincipal();
             return user.getId();
     }
 

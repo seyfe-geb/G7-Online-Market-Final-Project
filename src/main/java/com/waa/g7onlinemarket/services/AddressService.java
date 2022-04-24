@@ -17,4 +17,6 @@ public interface AddressService {
     void deleteById(long id);
 
     AddressDto updateById(long id, SaveAddressDto dto);
+
+    List<AddressDto> findByUserId(long id);
 }

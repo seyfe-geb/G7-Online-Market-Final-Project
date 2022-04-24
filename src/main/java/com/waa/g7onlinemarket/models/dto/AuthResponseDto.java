@@ -21,6 +21,10 @@ public class AuthResponseDto {
 
     private String lname;
 
+    private String username;
+
+    private String password;
+
     private String token;
 
     private List<Role> authorities;
