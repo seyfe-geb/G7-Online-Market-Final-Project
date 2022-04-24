@@ -123,7 +123,7 @@ INSERT INTO products (id, description, name, price, quantity, user_id  )
 VALUES (3, 'Maximize your carry', 'Bag',60, 5, 1);
 
 INSERT INTO products (id, description, name, price, quantity, user_id  )
-VALUES (4, ' cellular phone', 'iPhone', 10, 5, 2);
+VALUES (4, ' cellular phone', 'iPhone', 1100, 5, 2);
 
 
 --PRODUCT IMAGES
